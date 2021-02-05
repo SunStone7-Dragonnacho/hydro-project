@@ -73,6 +73,8 @@ class Hydro:
 
         self.c.execute("SELECT * FROM data WHERE photoid = '1'")
         return print(self.c.fetchall()) 
+
+    def read_dat(self) 
     
 
 hydro = Hydro()
