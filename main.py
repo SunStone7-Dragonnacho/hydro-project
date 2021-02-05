@@ -62,11 +62,12 @@ class Hydro:
 
     def dat_col(self):
         self.pump_store = self.cfg['temp']['pump_is_on']
+        self.light_store = self.cfg['temp']['light_is_on']
         self.now = datetime.now()
         
         self.photoid = 1
 
-        self.c.execute("INSERT INTO data VALUES ('{}', '{}', '{}', '{}')".format(self.now, self.photoid, self.pump_store))
+        self.c.execute("INSERT INTO data VALUES ('{}', '{}', '{}', '{}')".format(self.now, self.photoid, self.pump_store, self.light_store))
         self.conn.commit()
 
 
