@@ -69,9 +69,9 @@ class Hydro:
 
         self.c.execute("INSERT INTO data VALUES ('{}', '{}', '{}', '{}')".format(self.now, self.photoid, self.pump_store, self.light_store))
         self.conn.commit()
+        # datetime, photoid, is_pump_on, is_light_on, 
 
-
-        self.c.execute("SELECT * FROM data WHERE datetime='date12'")
+        self.c.execute("SELECT * FROM data WHERE photoid = '1'")
         return print(self.c.fetchall()) 
     
 
