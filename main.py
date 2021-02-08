@@ -65,16 +65,18 @@ class Hydro:
         self.light_store = self.cfg['temp']['light_is_on']
         self.now = datetime.now()
         
-        self.photoid = 1
+        self.photoid = 2
 
         self.c.execute("INSERT INTO data VALUES ('{}', '{}', '{}', '{}')".format(self.now, self.photoid, self.pump_store, self.light_store))
         self.conn.commit()
         # datetime, photoid, is_pump_on, is_light_on, 
 
-        self.c.execute("SELECT * FROM data WHERE photoid = '1'")
-        return print(self.c.fetchall()) 
+        #self.c.execute("SELECT * FROM data WHERE photoid = '1'")
+        #return print(self.c.fetchall()) 
 
-    def read_dat(self) 
+    def read_dat(self):
+        self.c.execute("SELECT * FROM data WHERE photoid = '2'")
+        return self.c.fetchone()
     
 
 hydro = Hydro()
@@ -82,7 +84,8 @@ hydro = Hydro()
 time.sleep(2)
 
 
-print(hydro.dat_col())
+#print(hydro.dat_col())
+print(hydro.read_dat())
 
 
 
